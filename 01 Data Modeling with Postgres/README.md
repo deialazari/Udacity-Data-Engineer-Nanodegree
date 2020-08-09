@@ -103,7 +103,8 @@ python3 create_tables.py
 song_data = list(df[['song_id', 'title', 'artist_id', 'year', 'duration']].values[0])
 ```
 ```
-artist_data = list(df[['artist_id', 'artist_name', 'artist_location', 'artist_latitude', 'artist_longitude']].values[0])
+artist_data = list(df[['artist_id', 'artist_name', 'artist_location', 'artist_latitude', 
+'artist_longitude']].values[0])
 ```
 - Filter songs by NextSong action
 ```
