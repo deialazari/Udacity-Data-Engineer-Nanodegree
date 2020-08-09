@@ -85,7 +85,7 @@ The data model used in this project is the Star Schema. There is 5 tables in tot
 ### Creating Tables
 1. Write CREATE, DROP and INSERT statements in ***sql_queries.py*** to create each table.
 2. Run on the terminal ***create_tables.py*** to create your database and tables.
-'''python3 create_tables.py'''
+```python3 create_tables.py```
 3. Run ***test.ipynb*** to confirm the creation of your tables with the correct columns.
 
 ### Building ETL Processes
