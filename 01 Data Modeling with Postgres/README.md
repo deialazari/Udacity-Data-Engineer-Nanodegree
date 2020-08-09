@@ -85,7 +85,9 @@ The data model used in this project is the Star Schema. There is 5 tables in tot
 ### Creating Tables
 1. Write CREATE, DROP and INSERT statements in ***sql_queries.py*** to create each table.
 2. Run on the terminal ***create_tables.py*** to create your database and tables.
-```python3 create_tables.py```
+```
+python3 create_tables.py
+```
 3. Run ***test.ipynb*** to confirm the creation of your tables with the correct columns.
 
 ### Building ETL Processes
@@ -97,22 +99,36 @@ The data model used in this project is the Star Schema. There is 5 tables in tot
 1. Complete ***etl.py***, where you'll process the entire datasets.
 - Open all the files in dataframes using pandas (pd.read_jason)
 - Select the fields that we will need and insert the data
-> song_data = list(df[['song_id', 'title', 'artist_id', 'year', 'duration']].values[0])
-> artist_data = list(df[['artist_id', 'artist_name', 'artist_location', 'artist_latitude', 'artist_longitude']].values[0])
+```
+song_data = list(df[['song_id', 'title', 'artist_id', 'year', 'duration']].values[0])
+```
+```
+artist_data = list(df[['artist_id', 'artist_name', 'artist_location', 'artist_latitude', 'artist_longitude']].values[0])
+```
 - Filter songs by NextSong action
->  df = df[df['page']=='NextSong']
+```
+df = df[df['page']=='NextSong']
+```
 - Convert start_time as timestamp in millisencs to datetime format
-> t = pd.to_datetime(df['ts'], unit='ms')
+```
+t = pd.to_datetime(df['ts'], unit='ms')
+```
 - Load and insert data to users table
 - Implement the ***song_select*** query in ***sql_queries.py*** to find the song ID and artist ID based on the title, artist name, and duration of a song.
-> song_select = ("""
+```
+song_select = ("""
 SELECT song_id, songs.artist_id
 FROM songs
 JOIN artists
 ON songs.artist_id = artists.artist_id
 WHERE songs.title = (%s) AND artists.name = (%s) AND songs.duration = (%s)
 """)
+```
 2. Remember to run ***create_tables.py*** before running ***etl.py*** on the terminal to reset your tables.
-> python3 create_tables.py
-> python3 etl.py
+```
+python3 create_tables.py
+```
+```
+python3 etl.py
+```
 3. Run ***test.ipynb*** to confirm your records were successfully inserted into each table.
